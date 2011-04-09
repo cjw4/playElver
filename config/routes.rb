@@ -1,7 +1,9 @@
 CodeName1::Application.routes.draw do
+
   devise_for :users
   root :to => "pages#index"
   resources :scorecards
+  match 'leaderboard' => 'leaderboards#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

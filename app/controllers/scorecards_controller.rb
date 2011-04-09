@@ -2,6 +2,7 @@ class ScorecardsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
+    @title = "Scorecard"
     @scorecard = current_user.scorecards.new
     @scorecards = current_user.scorecards.all
   end

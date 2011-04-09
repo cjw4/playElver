@@ -26,10 +26,6 @@ a {
 
 /* ------------------------------- Logged in home CSS ------------------------------- */
 
-.user {
-	font-size:18px;
-	font-weight:300;
-}
 #scorecard {
 	padding:0px 20px;
 	display:inline-block;

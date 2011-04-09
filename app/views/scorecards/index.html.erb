@@ -1,6 +1,6 @@
 
 <div id="scorecard">
-<h2>Scorecard! <span class="user">(<%= current_user.email %>)</span></h2>
+<h2>Scorecard!</h2>
 
 <% form_for @scorecard do |scorecard| %>
   <div>
@@ -98,7 +98,7 @@
 <h2>Leaderboard!</h2>
 <p>Shows the lowest score for each playElver user</p>
 <% @users.each do |user| %>
-  <span><%= user.email %></span>
+  <span><%= user.name %></span>
   <% @scores = user.scorecards.find(:all, :order => "total ASC", :limit => 1) %>
 
 <% @scores.each do |score| %>

@@ -2,9 +2,10 @@
 	<h2>playElver Top Ten scores of 2011!</h2>
 	<% @scores.each do |score| %>
 	  <div>
-	  <strong><%= score.user.email %></strong>
+	  <%= @i %>. <strong><%= score.user.name %></strong>
 	  <%= score.total %>
 	  (<%= score.created_at.month %>/<%= score.created_at.day %>/<%= score.created_at.year %>)
 	  </div>
+	  <% @i = @i + 1 %>
 	<% end %>
 </div>

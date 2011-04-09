@@ -1,0 +1,22 @@
+/* ------------------------------- Application CSS ------------------------------- */
+#wrapper {
+	margin: 0 auto;
+	width:1000px;
+}
+a:hover {
+	text-decoration:none;
+}
+a {
+	color:blue;
+}
+
+/* ------------------------------- Navigation CSS ------------------------------- */
+
+#navigation ul {
+	padding:0px 10px;
+}
+#navigation ul li {
+	list-style:none;
+	display: inline;
+	padding:0px 10px;
+}

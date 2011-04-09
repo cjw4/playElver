@@ -3,7 +3,7 @@ class LeaderboardsController < ApplicationController
   
   def index
     @title = "Leaderboard"
-    @users = User.all
+    @users = User.find(:all, :conditions => ['id <> ?', current_user.id])
   end
 
 end

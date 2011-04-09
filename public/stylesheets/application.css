@@ -12,6 +12,9 @@ a {
 
 /* ------------------------------- Navigation CSS ------------------------------- */
 
+#navigation {
+	border:solid white;
+}
 #navigation ul {
 	padding:0px 10px;
 }
@@ -21,10 +24,35 @@ a {
 	padding:0px 10px;
 }
 
+/* ------------------------------- Logged in home CSS ------------------------------- */
+
+.user {
+	font-size:18px;
+	font-weight:300;
+}
+#scorecard {
+	padding:0px 20px;
+	display:inline-block;
+	float:left;
+}
+#leaderboard {
+	display:inline-block;
+	padding:0px 20px;
+	float:right;
+}
+
 /* ------------------------------- Scorecard CSS ------------------------------- */
 
+.holeLabel {
+	color: #999;
+	font-size: 12px;
+	width:36px;
+	display:inline-block;
+	text-align:center;
+}
 .outputSC {
 	margin:20px 0px;
+	white-space:nowrap;
 }
 .holeInput {
 	width:30px;
@@ -43,5 +71,10 @@ a {
 	width:30px;
 	display:inline-block;
 	font-weight:800;
+	text-align:center;
+}
+.deleteBtn {
+	width:60px;
+	display:inline-block;
 	text-align:center;
 }

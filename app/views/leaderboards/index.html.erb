@@ -1,5 +1,5 @@
-<h2>playElver leaderboard!</h2>
-<p>The last three rounds for each playElver user</p>
+<h2>Latest Rounds for playElver users!</h2>
+<p>The last three rounds for the other playElver users</p>
 
 <% @users.each do |user| %>
 <div class="singleLeaderboard">
@@ -71,6 +71,40 @@
   </div>
   </div>
   <% end %>
+  <% if user.scorecards[-3].nil? %>
+  <% else %>
+  <div class="outputSC">
+  <div>
+	<span class="holeOutput"><%= user.scorecards[-3].hole1 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole2 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole3 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole4 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole5 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole6 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole7 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole8 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole9 %></span>
+	<% if user.scorecards[-3].pro? %>
+	<span class="teesOutput">Pro</span>
+	<% else %>
+	<span class="teesOutput">Am</span>
+	<% end  %>
+  </div>
+  <div>
+	<span class="holeOutput"><%= user.scorecards[-3].hole10 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole11 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole12 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole13 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole14 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole15 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole16 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole17 %></span>
+	<span class="holeOutput"><%= user.scorecards[-3].hole18 %></span>
+	<span class="totalOutput"><%= user.scorecards[-3].total %></span>
+  </div>
+  </div>
+  <% end %>
   
 </div>
 <% end %>
+

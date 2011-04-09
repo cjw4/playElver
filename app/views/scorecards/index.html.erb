@@ -1,6 +1,19 @@
-<h2>Scorecard!</h2>
+
+<div id="scorecard">
+<h2>Scorecard! <span class="user">(<%= current_user.email %>)</span></h2>
 
 <% form_for @scorecard do |scorecard| %>
+  <div>
+  	<span class="holeLabel">1</span>
+	<span class="holeLabel">2</span>
+	<span class="holeLabel">3</span>
+	<span class="holeLabel">4</span>
+	<span class="holeLabel">5</span>
+	<span class="holeLabel">6</span>
+	<span class="holeLabel">7</span>
+	<span class="holeLabel">8</span>
+	<span class="holeLabel">9</span>
+  </div>
   <div>
 	<%= scorecard.text_field :hole1, :class => "holeInput", :maxlength => "1" %>
 	<%= scorecard.text_field :hole2, :class => "holeInput", :maxlength => "1" %>
@@ -14,6 +27,17 @@
 	<%= scorecard.check_box :pro %>Pro?
   </div>
   <div>
+  	<span class="holeLabel">10</span>
+	<span class="holeLabel">11</span>
+	<span class="holeLabel">12</span>
+	<span class="holeLabel">13</span>
+	<span class="holeLabel">14</span>
+	<span class="holeLabel">15</span>
+	<span class="holeLabel">16</span>
+	<span class="holeLabel">17</span>
+	<span class="holeLabel">18</span>
+  </div>
+  <div>
   	<%= scorecard.text_field :hole10, :class => "holeInput", :maxlength => "1" %>
 	<%= scorecard.text_field :hole11, :class => "holeInput", :maxlength => "1" %>
 	<%= scorecard.text_field :hole12, :class => "holeInput", :maxlength => "1" %>
@@ -23,41 +47,93 @@
 	<%= scorecard.text_field :hole16, :class => "holeInput", :maxlength => "1" %>
 	<%= scorecard.text_field :hole17, :class => "holeInput", :maxlength => "1" %>
 	<%= scorecard.text_field :hole18, :class => "holeInput", :maxlength => "1" %>
-	<%= scorecard.text_field :total, :class => "totalInput", :maxlength => "2" %>
+	<%= scorecard.text_field :total, :class => "totalInput", :maxlength => "2", :readonly => "readonly" %>
   </div>
 	<%= scorecard.submit "Submit" %>
 <% end %>
 
 <% @scorecards.each do |scorecard| %>
 <div class="outputSC">
-  <div>	
-	<span class="holeOutput"><%= scorecard.hole1 %></span>
-	<span class="holeOutput"><%= scorecard.hole2 %></span>
-	<span class="holeOutput"><%= scorecard.hole3 %></span>
-	<span class="holeOutput"><%= scorecard.hole4 %></span>
-	<span class="holeOutput"><%= scorecard.hole5 %></span>
-	<span class="holeOutput"><%= scorecard.hole6 %></span>
-	<span class="holeOutput"><%= scorecard.hole7 %></span>
-	<span class="holeOutput"><%= scorecard.hole8 %></span>
-	<span class="holeOutput"><%= scorecard.hole9 %></span>
+  <div class="top">
+	<span class="holes">	
+		<span class="holeOutput"><%= scorecard.hole1 %></span>
+		<span class="holeOutput"><%= scorecard.hole2 %></span>
+		<span class="holeOutput"><%= scorecard.hole3 %></span>
+		<span class="holeOutput"><%= scorecard.hole4 %></span>
+		<span class="holeOutput"><%= scorecard.hole5 %></span>
+		<span class="holeOutput"><%= scorecard.hole6 %></span>
+		<span class="holeOutput"><%= scorecard.hole7 %></span>
+		<span class="holeOutput"><%= scorecard.hole8 %></span>
+		<span class="holeOutput"><%= scorecard.hole9 %></span>
+	</span>
 	<% if scorecard.pro? %>
 	<span class="teesOutput">Pro</span>
 	<% else %>
 	<span class="teesOutput">Am</span>
 	<% end  %>
+	<input type="button" value=">>" class="showBtn" />
   </div>
 
-  <div>
-  	<span class="holeOutput"><%= scorecard.hole10 %></span>
-    <span class="holeOutput"><%= scorecard.hole11 %></span>
-    <span class="holeOutput"><%= scorecard.hole12 %></span>
-    <span class="holeOutput"><%= scorecard.hole13 %></span>
-    <span class="holeOutput"><%= scorecard.hole14 %></span>
-    <span class="holeOutput"><%= scorecard.hole15 %></span>
-    <span class="holeOutput"><%= scorecard.hole16 %></span>
-    <span class="holeOutput"><%= scorecard.hole17 %></span>
-    <span class="holeOutput"><%= scorecard.hole18 %></span>
-    <span class="holeOutput"><%= scorecard.total %></span>
+  <div class="bottom">
+	<span class="holes">
+  		<span class="holeOutput"><%= scorecard.hole10 %></span>
+	    <span class="holeOutput"><%= scorecard.hole11 %></span>
+	    <span class="holeOutput"><%= scorecard.hole12 %></span>
+	    <span class="holeOutput"><%= scorecard.hole13 %></span>
+	    <span class="holeOutput"><%= scorecard.hole14 %></span>
+	    <span class="holeOutput"><%= scorecard.hole15 %></span>
+	    <span class="holeOutput"><%= scorecard.hole16 %></span>
+	    <span class="holeOutput"><%= scorecard.hole17 %></span>
+	    <span class="holeOutput"><%= scorecard.hole18 %></span>
+	</span>
+	<span class="totalOutput"><%= scorecard.total %></span>
+	<span class="deleteBtn"><%= button_to "x", scorecard, :method => :delete, :confirm => "Are you sure?" %></span>
+	<span><%= scorecard.created_at.month %>/<%= scorecard.created_at.day %>/<%= scorecard.created_at.year %></span>
+	
   </div>
 </div>	
 <% end %>
+</div><!-- end scorecard div -->
+<div id="leaderboard">
+<h2>Leaderboard!</h2>
+<p>Shows the lowest score for each playElver user</p>
+<% @users.each do |user| %>
+  <span><%= user.email %></span>
+  <% @scores = user.scorecards.find(:all, :order => "total ASC", :limit => 1) %>
+
+<% @scores.each do |score| %>
+  <span>(<%= score.created_at.month %>/<%= score.created_at.day %>/<%= score.created_at.year %>)</span>	
+  <div class="outputSC">
+  <div>
+	<span class="holeOutput"><%= score.hole1 %></span>
+	<span class="holeOutput"><%= score.hole2 %></span>
+	<span class="holeOutput"><%= score.hole3 %></span>
+	<span class="holeOutput"><%= score.hole4 %></span>
+	<span class="holeOutput"><%= score.hole5 %></span>
+	<span class="holeOutput"><%= score.hole6 %></span>
+	<span class="holeOutput"><%= score.hole7 %></span>
+	<span class="holeOutput"><%= score.hole8 %></span>
+	<span class="holeOutput"><%= score.hole9 %></span>
+	<% if score.pro? %>
+	<span class="teesOutput">Pro</span>
+	<% else %>
+	<span class="teesOutput">Am</span>
+	<% end  %>
+  </div>
+  <div>
+	<span class="holeOutput"><%= score.hole10 %></span>
+	<span class="holeOutput"><%= score.hole11 %></span>
+	<span class="holeOutput"><%= score.hole12 %></span>
+	<span class="holeOutput"><%= score.hole13 %></span>
+	<span class="holeOutput"><%= score.hole14 %></span>
+	<span class="holeOutput"><%= score.hole15 %></span>
+	<span class="holeOutput"><%= score.hole16 %></span>
+	<span class="holeOutput"><%= score.hole17 %></span>
+	<span class="holeOutput"><%= score.hole18 %></span>
+	<span class="totalOutput"><%= score.total %></span>
+  </div>
+  </div>	
+  
+<% end %>
+<% end %>
+</div>

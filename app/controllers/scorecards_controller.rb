@@ -1,11 +1,13 @@
 class ScorecardsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
-    @scorecard = Scorecard.new
-    @scorecards = Scorecard.all
+    @scorecard = current_user.scorecards.new
+    @scorecards = current_user.scorecards.all
   end
   
   def create
-    @scorecard = Scorecard.new(params[:scorecard])
+    @scorecard = current_user.scorecards.new(params[:scorecard])
     if @scorecard.save
       redirect_to scorecards_path
     else

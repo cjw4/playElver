@@ -38,4 +38,23 @@ $(document).ready(function(){
 		}
 		
 	});
+	
+	$("#toggleSC").live("click", function(){
+		var scorecard = $("#scorecard");
+		scorecard.animate({
+			left: parseInt(scorecard.css('left'), 10) == 0 ?
+			-scorecard.outerWidth() + 55 : 0
+		});
+		$(this).animate({
+			left: parseInt(scorecard.css('left'), 10) == 0 ?
+			-scorecard.outerWidth() + 55 : 0
+		})
+		if ($(this).attr("value") == "<"){
+			$(this).attr({value:">"});
+			$(".totalInput").attr({readonly:""})
+		} else {
+			$(this).attr("value", "<");
+			$(".totalInput").attr({readonly:"readonly"})
+		}
+	});
 });

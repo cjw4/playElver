@@ -9,6 +9,10 @@ a:hover {
 a {
 	color:blue;
 }
+#flash_error {
+	background: red;
+	border:solid thin;
+}
 
 /* ------------------------------- Navigation CSS ------------------------------- */
 
@@ -26,8 +30,16 @@ a {
 
 /* ------------------------------- Logged in home CSS ------------------------------- */
 
+#scorecardContainer {
+	padding:0px 20px 0px 0px;
+	display:inline-block;
+	float:left;
+	position:absolute;
+	overflow:hidden;
+}
 #scorecard {
-	padding:0px 20px;
+	position:relative;
+	left:0px;
 	display:inline-block;
 	float:left;
 }
@@ -73,4 +85,15 @@ a {
 	width:60px;
 	display:inline-block;
 	text-align:center;
+}
+#toggleSC {
+	color:#FFF;
+	background:#999;
+	margin:8px 5px;
+	padding:28px 0;
+	position:relative;
+	left:0px;
+}
+#toggleContainer {
+	display:inline-block;
 }

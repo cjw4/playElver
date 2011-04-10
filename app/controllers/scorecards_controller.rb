@@ -9,12 +9,12 @@ class ScorecardsController < ApplicationController
   end
   
   def create
-    @scorecard = current_user.scorecards.new(params[:scorecard])
+    @scorecard = current_user.scorecards.build(params[:scorecard])
     if @scorecard.save
       redirect_to scorecards_path
     else
       flash[:error] = "Your round could not be saved!"
-      render root_path
+      redirect_to scorecards_path
     end
   end
   

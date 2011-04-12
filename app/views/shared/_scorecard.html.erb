@@ -1,0 +1,71 @@
+<% form_for @scorecard do |scorecard| %>
+  
+  <% if @scorecard.errors.any? %>
+  <div id="errorsExplaination">
+  	<h2><%= pluralize(@scorecard.errors.count, "error") %> prohibited this model from being saved:</h2>
+	<ul>
+		<% @scorecard.errors.full_messages.each do |msg|  %>
+		<li><%= msg %></li>
+		<% end  %>
+	</ul>
+  </div>
+  <% end %>
+
+<div id="scorecard">
+	
+  <div>
+  	<span class="holeLabel">1</span>
+	<span class="holeLabel">2</span>
+	<span class="holeLabel">3</span>
+	<span class="holeLabel">4</span>
+	<span class="holeLabel">5</span>
+	<span class="holeLabel">6</span>
+	<span class="holeLabel">7</span>
+	<span class="holeLabel">8</span>
+	<span class="holeLabel">9</span>
+  </div>
+
+  <div>
+	<%= scorecard.text_field :hole1, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole2, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole3, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole4, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole5, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole6, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole7, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole8, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole9, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.check_box :pro %>Pro?
+  </div>
+
+  <div>
+  	<span class="holeLabel">10</span>
+	<span class="holeLabel">11</span>
+	<span class="holeLabel">12</span>
+	<span class="holeLabel">13</span>
+	<span class="holeLabel">14</span>
+	<span class="holeLabel">15</span>
+	<span class="holeLabel">16</span>
+	<span class="holeLabel">17</span>
+	<span class="holeLabel">18</span>
+  </div>
+
+  <div>
+  	<%= scorecard.text_field :hole10, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole11, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole12, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole13, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole14, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole15, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole16, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole17, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :hole18, :class => "holeInput", :maxlength => "1" %>
+	<%= scorecard.text_field :total, :class => "totalInput", :maxlength => "2", :readonly => "readonly" %>
+  </div>
+
+</div><!-- end scorecard div -->
+	
+  <div id="toggleContainer"><input type="button" value="<" id="toggleSC" /></div>
+  <div><%= scorecard.submit "Submit" %></div>
+		
+<% end %>

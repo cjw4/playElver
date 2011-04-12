@@ -1,0 +1,46 @@
+<div id="outputHeader">
+	<span class="header">Date</span>
+	<span class="header">Total</span>
+	<span class="header">Tees</span>
+</div>
+
+<% @scorecards.each do |scorecard| %>
+
+<div class="output">
+	<span class="element"><%= scorecard.created_at.month %>/<%= scorecard.created_at.day %>/<%= scorecard.created_at.year %></span>
+	<span class="element"><%= scorecard.total %><input type="button" value="<" class="showBtn" /></span>
+	<% if scorecard.pro? %>
+	<span class="element">Pro</span>
+	<% else %>
+	<span class="element">Am</span>
+	<% end  %>
+	<span class="deleteBtn"><%= button_to "x", scorecard, :method => :delete, :confirm => "Are you sure?" %></span>
+
+<div class="outputSC">
+	<div class="holes">	
+		<span class="holeOutput"><%= scorecard.hole1 %></span>
+		<span class="holeOutput"><%= scorecard.hole2 %></span>
+		<span class="holeOutput"><%= scorecard.hole3 %></span>
+		<span class="holeOutput"><%= scorecard.hole4 %></span>
+		<span class="holeOutput"><%= scorecard.hole5 %></span>
+		<span class="holeOutput"><%= scorecard.hole6 %></span>
+		<span class="holeOutput"><%= scorecard.hole7 %></span>
+		<span class="holeOutput"><%= scorecard.hole8 %></span>
+		<span class="holeOutput"><%= scorecard.hole9 %></span>
+	</div>
+	<div class="holes">
+  		<span class="holeOutput"><%= scorecard.hole10 %></span>
+	    <span class="holeOutput"><%= scorecard.hole11 %></span>
+	    <span class="holeOutput"><%= scorecard.hole12 %></span>
+	    <span class="holeOutput"><%= scorecard.hole13 %></span>
+	    <span class="holeOutput"><%= scorecard.hole14 %></span>
+	    <span class="holeOutput"><%= scorecard.hole15 %></span>
+	    <span class="holeOutput"><%= scorecard.hole16 %></span>
+	    <span class="holeOutput"><%= scorecard.hole17 %></span>
+	    <span class="holeOutput"><%= scorecard.hole18 %></span>
+	</div>
+</div>
+</div><!-- end output div -->
+	
+<% end %>
+<%= will_paginate @scorecards %>

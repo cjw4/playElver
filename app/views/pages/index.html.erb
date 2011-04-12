@@ -1,2 +1,16 @@
+<% if user_signed_in? %>
+
+<div id="scorecardContainer">
+  <h2>Scorecard!</h2>
+  <%= render 'shared/scorecard' %>
+  
+  <h2>Results!</h2>
+  <%= render 'shared/results' %>
+</div><!-- end scorecardContainer div -->
+
+<% else %>
+
 <h2>Welcome to the playElver app</h2>
 <p>Record your disc golf scores and see how your friends are shooting!</p>
+
+<% end %>

@@ -1,0 +1,5 @@
+<h3><%= current_user.name %></h3>
+Rounds Logged: <%= current_user.scorecards.count %><br />
+Best Round: <% @best_score.each do |b| %>
+  <%= b.total %>
+<% end  %>

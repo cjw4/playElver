@@ -1,165 +1,17 @@
 <div id="scorecardContainer">
 
-<h2>Scorecard!</h2>
-
-	<% form_for @scorecard do |scorecard| %>
-	  <% if @scorecard.errors.any? %>
-	  <div id="errorsExplaination">
-	  	<h2><%= pluralize(@scorecard.errors.count, "error") %> prohibited this model from being saved:</h2>
-		<ul>
-			<% @scorecard.errors.full_messages.each do |msg|  %>
-			<li><%= msg %></li>
-			<% end  %>
-		</ul>
-	  </div>
-	  <% else %>
-	  <div id="scorecard">
-		
-	  	<div>
-		  	<span class="holeLabel">1</span>
-			<span class="holeLabel">2</span>
-			<span class="holeLabel">3</span>
-			<span class="holeLabel">4</span>
-			<span class="holeLabel">5</span>
-			<span class="holeLabel">6</span>
-			<span class="holeLabel">7</span>
-			<span class="holeLabel">8</span>
-			<span class="holeLabel">9</span>
-		  </div>
+  <h2>Scorecard!</h2>
+  <%= render 'shared/scorecard' %>
 	
-		  <div>
-			<%= scorecard.text_field :hole1, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole2, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole3, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole4, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole5, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole6, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole7, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole8, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole9, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.check_box :pro %>Pro?
-		  </div>
-	
-		  <div>
-		  	<span class="holeLabel">10</span>
-			<span class="holeLabel">11</span>
-			<span class="holeLabel">12</span>
-			<span class="holeLabel">13</span>
-			<span class="holeLabel">14</span>
-			<span class="holeLabel">15</span>
-			<span class="holeLabel">16</span>
-			<span class="holeLabel">17</span>
-			<span class="holeLabel">18</span>
-		  </div>
-	
-		  <div>
-		  	<%= scorecard.text_field :hole10, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole11, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole12, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole13, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole14, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole15, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole16, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole17, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :hole18, :class => "holeInput", :maxlength => "1" %>
-			<%= scorecard.text_field :total, :class => "totalInput", :maxlength => "2", :readonly => "readonly" %>
-		  </div>
-		
-		</div><!-- end scorecard div -->
-		
-			<div id="toggleContainer"><input type="button" value="<" id="toggleSC" /></div>
-			<div><%= scorecard.submit "Submit" %></div>
-			
-		
-	  
-	  <% end %>
-	<% end %>
+  <h2>Results!</h2>
+  <%= render 'shared/results' %>
 
-	
-
-
-	<% @scorecards.each do |scorecard| %>
-	<div class="outputSC">
-	  <div class="top">
-		<span class="holes">	
-			<span class="holeOutput"><%= scorecard.hole1 %></span>
-			<span class="holeOutput"><%= scorecard.hole2 %></span>
-			<span class="holeOutput"><%= scorecard.hole3 %></span>
-			<span class="holeOutput"><%= scorecard.hole4 %></span>
-			<span class="holeOutput"><%= scorecard.hole5 %></span>
-			<span class="holeOutput"><%= scorecard.hole6 %></span>
-			<span class="holeOutput"><%= scorecard.hole7 %></span>
-			<span class="holeOutput"><%= scorecard.hole8 %></span>
-			<span class="holeOutput"><%= scorecard.hole9 %></span>
-		</span>
-		<% if scorecard.pro? %>
-		<span class="teesOutput">Pro</span>
-		<% else %>
-		<span class="teesOutput">Am</span>
-		<% end  %>
-		<input type="button" value=">>" class="showBtn" />
-	  </div>
-
-	  <div class="bottom">
-		<span class="holes">
-	  		<span class="holeOutput"><%= scorecard.hole10 %></span>
-		    <span class="holeOutput"><%= scorecard.hole11 %></span>
-		    <span class="holeOutput"><%= scorecard.hole12 %></span>
-		    <span class="holeOutput"><%= scorecard.hole13 %></span>
-		    <span class="holeOutput"><%= scorecard.hole14 %></span>
-		    <span class="holeOutput"><%= scorecard.hole15 %></span>
-		    <span class="holeOutput"><%= scorecard.hole16 %></span>
-		    <span class="holeOutput"><%= scorecard.hole17 %></span>
-		    <span class="holeOutput"><%= scorecard.hole18 %></span>
-		</span>
-		<span class="totalOutput"><%= scorecard.total %></span>
-		<span class="deleteBtn"><%= button_to "x", scorecard, :method => :delete, :confirm => "Are you sure?" %></span>
-		<span><%= scorecard.created_at.month %>/<%= scorecard.created_at.day %>/<%= scorecard.created_at.year %></span>
-	
-	  </div>
-	</div>	
-	<% end %>
-</div><!-- end scorecardContainer div -->
-<div id="leaderboard">
-<h2>Leaderboard!</h2>
-<p>Shows the lowest score for each playElver user</p>
-<% @users.each do |user| %>
-  <span><%= user.name %></span>
-  <% @scores = user.scorecards.find(:all, :order => "total ASC", :limit => 1) %>
-
-<% @scores.each do |score| %>
-  <span>(<%= score.created_at.month %>/<%= score.created_at.day %>/<%= score.created_at.year %>)</span>	
-  <div class="outputSC">
-  <div>
-	<span class="holeOutput"><%= score.hole1 %></span>
-	<span class="holeOutput"><%= score.hole2 %></span>
-	<span class="holeOutput"><%= score.hole3 %></span>
-	<span class="holeOutput"><%= score.hole4 %></span>
-	<span class="holeOutput"><%= score.hole5 %></span>
-	<span class="holeOutput"><%= score.hole6 %></span>
-	<span class="holeOutput"><%= score.hole7 %></span>
-	<span class="holeOutput"><%= score.hole8 %></span>
-	<span class="holeOutput"><%= score.hole9 %></span>
-	<% if score.pro? %>
-	<span class="teesOutput">Pro</span>
-	<% else %>
-	<span class="teesOutput">Am</span>
-	<% end  %>
-  </div>
-  <div>
-	<span class="holeOutput"><%= score.hole10 %></span>
-	<span class="holeOutput"><%= score.hole11 %></span>
-	<span class="holeOutput"><%= score.hole12 %></span>
-	<span class="holeOutput"><%= score.hole13 %></span>
-	<span class="holeOutput"><%= score.hole14 %></span>
-	<span class="holeOutput"><%= score.hole15 %></span>
-	<span class="holeOutput"><%= score.hole16 %></span>
-	<span class="holeOutput"><%= score.hole17 %></span>
-	<span class="holeOutput"><%= score.hole18 %></span>
-	<span class="totalOutput"><%= score.total %></span>
-  </div>
-  </div>	
   
-<% end %>
-<% end %>
+
+</div><!-- end scorecardContainer div -->
+
+<div id="personalContainer">
+	
+  <%= render 'shared/personal' %>
+
 </div>

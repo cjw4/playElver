@@ -26,15 +26,15 @@ $(document).ready(function(){
 		}
 		$("#scorecard_total").val(total);
 	});
-	$(".holes").css({"display":"none"})
+	
+	$(".outputSC").css({"display":"none"});
+	
 	$(".showBtn").live("click", function(){
-		$(this).parent().parent().children(".top, .bottom").children(".holes").animate({
-			width: 'toggle'
-		});
-		if ($(this).val() == ">>") {
-			$(this).replaceWith($("<input>", {"type":"button", "value":"<<", "class":"showBtn"}));
+		$(this).parent().parent().children(".outputSC").slideToggle();
+		if ($(this).val() == "<") {
+			$(this).replaceWith($("<input>", {"type":"button", "value":"v", "class":"showBtn"}));
 		} else {
-			$(this).replaceWith($("<input>", {"type":"button", "value":">>", "class":"showBtn"}));
+			$(this).replaceWith($("<input>", {"type":"button", "value":"<", "class":"showBtn"}));
 		}
 		
 	});

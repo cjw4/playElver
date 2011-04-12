@@ -9,9 +9,21 @@ a:hover {
 a {
 	color:blue;
 }
-#flash_error {
-	background: red;
-	border:solid thin;
+.flash_error, .flash_error, .flash_alert {
+	padding: 0.8em; 
+	margin-bottom: 1em; 
+	border: 2px solid #ddd;
+	background: #fbe3e4; 
+	color: #8a1f11; 
+	border-color: #fbc2c4;
+}
+.flash_notice, .flash_success {
+	padding: 0.8em; 
+	margin-bottom: 1em; 
+	border: 2px solid #ddd;
+	background: #e6efc2; 
+	color: #264409; 
+	border-color: #c6d880;
 }
 
 /* ------------------------------- Navigation CSS ------------------------------- */
@@ -34,8 +46,13 @@ a {
 	padding:0px 20px 0px 0px;
 	display:inline-block;
 	float:left;
-	position:absolute;
 	overflow:hidden;
+}
+#personalContainer {
+	float:left;
+	background:#FFF380;
+	padding: 5px 10px;
+	margin:20px 5px;
 }
 #scorecard {
 	position:relative;
@@ -47,6 +64,20 @@ a {
 	display:inline-block;
 	padding:0px 20px;
 	float:right;
+}
+#outputHeader, .output {
+	padding:0px;
+	margin:10px 0;
+}
+.header {
+	display:inline-block;
+	width:50px;
+	padding:0 15px;
+}
+.element {
+	display:inline-block;
+	width:50px;
+	padding:0 15px;
 }
 
 /* ------------------------------- Scorecard CSS ------------------------------- */

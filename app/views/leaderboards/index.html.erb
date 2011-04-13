@@ -3,10 +3,10 @@
 <div id="topTen">
 	<h3>Top Ten scores of 2011!</h3>
 	<% @scores.each do |score| %>
-	  <div>
+	  <div class="topTenScore">
 	  <%= @i %>. <strong><%= score.user.name %></strong>
 	  <%= score.total %>
-	  (<%= score.created_at.month %>/<%= score.created_at.day %>/<%= score.created_at.year %>)
+	  (<%= score.created_at.strftime("%b %e, %Y")%>)
 	  </div>
 	  <% @i = @i + 1 %>
 	<% end %>
@@ -15,10 +15,10 @@
 <div id="topTenMonth">
 	<h3>Top Ten scores of <%= @time.strftime("%B") %>!</h3>
 	<% @scores_month.each do |score| %>
-	<div>
+	<div class="topTenScore">
 	<%= @m %>. <strong><%= score.user.name %></strong>
 	<%= score.total %>
-	(<%= score.created_at.month %>/<%= score.created_at.day %>/<%= score.created_at.year %>)
+	(<%= score.created_at.strftime("%b %e, %Y")%>)
 	</div>
 	<% @m = @m + 1 %>
 	<% end %>
@@ -26,4 +26,13 @@
 
 <div id="topTenWeek">
   <h3>Top Ten scores of the week!</h3>
+  <% @scores_week.each do |score| %>
+  	<div class="topTenScore">
+	<%= @w %>. <strong><%= score.user.name %></strong>
+	<%= score.total %>
+	(<%= score.created_at.strftime("%b %e, %Y")%>)
+	</div>
+	<% @w = @w + 1 %>
+  <% end %>
 </div>
+<%= Time.now.beginning_of_month %>

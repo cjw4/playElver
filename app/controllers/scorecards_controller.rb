@@ -18,16 +18,12 @@ class ScorecardsController < ApplicationController
                                                  :total => params["total"], :month => params["month"], 
                                                  :large_scorecard => params["large_scorecard"]
                                                 })
-    @scorecard.update_attribute(:large_scorecard, params["large_scorecard"])
-    redirect_to 'index'
     if @scorecard.save
       redirect_to scorecards_path
     else
       flash[:error] = "Your round could not be saved!"
       redirect_to scorecards_path
     end
-    
-   
   end
   
   def destroy

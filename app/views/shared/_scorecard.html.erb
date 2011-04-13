@@ -61,11 +61,12 @@
 	<%= scorecard.text_field :hole17, :class => "holeInput", :maxlength => "1" %>
 	<%= scorecard.text_field :hole18, :class => "holeInput", :maxlength => "1" %>
 	<%= scorecard.text_field :total, :class => "totalInput", :maxlength => "2", :readonly => "readonly" %>
+	<%= scorecard.hidden_field :month, :value => Time.now.month %>
   </div>
 
 </div><!-- end scorecard div -->
 	
   <div id="toggleContainer"><input type="button" value="<" id="toggleSC" /></div>
-  <div><%= scorecard.submit "Submit" %></div>
+  <div><%= scorecard.submit "Submit" %><%= image_tag 'ajax-loader.gif', :class => "loader" %></div>
 		
 <% end %>

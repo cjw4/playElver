@@ -11,3 +11,19 @@
 	  <% @i = @i + 1 %>
 	<% end %>
 </div>
+
+<div id="topTenMonth">
+	<h3>Top Ten scores of <%= @time.strftime("%B") %>!</h3>
+	<% @scores_month.each do |score| %>
+	<div>
+	<%= @m %>. <strong><%= score.user.name %></strong>
+	<%= score.total %>
+	(<%= score.created_at.month %>/<%= score.created_at.day %>/<%= score.created_at.year %>)
+	</div>
+	<% @m = @m + 1 %>
+	<% end %>
+</div>
+
+<div id="topTenWeek">
+  <h3>Top Ten scores of the week!</h3>
+</div>

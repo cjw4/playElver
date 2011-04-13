@@ -4,6 +4,8 @@ CodeName1::Application.routes.draw do
   root :to => "pages#index"
   resources :scorecards
   match 'leaderboard' => 'leaderboards#index'
+  match 'users' => 'pages#users'
+  match 'toggle' => 'scorecards#toggle'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,6 +1,7 @@
+<h2>Results!</h2> <%= will_paginate @scorecards %>
 <div id="outputHeader">
 	<span class="header">Date</span>
-	<span class="header">Total</span>
+	<span class="header">Score</span>
 	<span class="header">Tees</span>
 </div>
 
@@ -8,7 +9,13 @@
 
 <div class="output">
 	<span class="element"><%= scorecard.created_at.month %>/<%= scorecard.created_at.day %>/<%= scorecard.created_at.year %></span>
-	<span class="element"><%= scorecard.total %><input type="button" value="<" class="showBtn" /></span>
+	<span class="element"><%= scorecard.total %>
+		<span class="score"><%= scorecard.total - 54 %></span>
+		<% if scorecard.large_scorecard %>
+		<input type="button" value="<" class="showBtn" /></span>
+		<% else %>
+		</span>
+		<% end %>
 	<% if scorecard.pro? %>
 	<span class="element">Pro</span>
 	<% else %>
@@ -43,4 +50,3 @@
 </div><!-- end output div -->
 	
 <% end %>
-<%= will_paginate @scorecards %>

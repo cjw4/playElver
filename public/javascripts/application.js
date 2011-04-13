@@ -2,6 +2,9 @@ $(document).ready(function(){
 	$(".holeInput").val("3");
 	$(".totalInput").val("54");
 	
+	// give #scorecard a sc attriubute value of "true" (sc = "true")
+	$("#scorecard").attr("sc", "true")
+	
 	$(".holeInput").keyup(function() {
 		var i = 1;
 		var total = 0;
@@ -56,5 +59,51 @@ $(document).ready(function(){
 			$(this).attr("value", "<");
 			$(".totalInput").attr({readonly:"readonly"})
 		}
+		
+		// ajax toggle button 
+		if (scorecard.attr("sc") == "true") {
+			scorecard.attr("sc", "false");
+		} else {
+			scorecard.attr("sc", "true");
+		}
+		
 	});
+	
+	$("#new_scorecard").submit(function() {
+		$("img.loader").css({display:'inline'});
+		var hole1 = $("#scorecard_hole1").val();
+		var hole2 = $("#scorecard_hole2").val();
+		var hole3 = $("#scorecard_hole3").val();
+		var hole4 = $("#scorecard_hole4").val();
+		var hole5 = $("#scorecard_hole5").val();
+		var hole6 = $("#scorecard_hole6").val();
+		var hole7 = $("#scorecard_hole7").val();
+		var hole8 = $("#scorecard_hole8").val();
+		var hole9 = $("#scorecard_hole9").val();
+		var hole10 = $("#scorecard_hole10").val();
+		var hole11 = $("#scorecard_hole11").val();
+		var hole12 = $("#scorecard_hole12").val();
+		var hole13 = $("#scorecard_hole13").val();
+		var hole14 = $("#scorecard_hole14").val();
+		var hole15 = $("#scorecard_hole15").val();
+		var hole16 = $("#scorecard_hole16").val();
+		var hole17 = $("#scorecard_hole17").val();
+		var hole18 = $("#scorecard_hole18").val();
+		var total = $("#scorecard_total").val();
+		var month = $("#scorecard_month").val();
+		
+		var largeSC = $("#scorecard").attr("sc");
+		$.post('scorecards', 
+			{ hole1: hole1, hole2: hole2, hole3: hole3, hole4: hole4, hole5: hole5, hole6: hole6,
+		  	hole7: hole7, hole8: hole8, hole9: hole9, hole10: hole10, hole11: hole11, hole12: hole12,
+   	      	hole13: hole13, hole14: hole14, hole15: hole15, hole16: hole16, hole17: hole17, hole18: hole18,
+		  	total: total, month: month, large_scorecard: largeSC }, 
+			function() {
+				$("img.loader").css({display:'none'});				
+			});
+			
+		return false;
+	});
+	
+
 });

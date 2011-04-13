@@ -44,15 +44,25 @@ a {
 
 #scorecardContainer {
 	padding:0px 20px 0px 0px;
-	display:inline-block;
-	float:left;
+	float:right;
 	overflow:hidden;
+	padding:0px;
 }
 #personalContainer {
-	float:left;
 	background:#FFF380;
+	float:right;
 	padding: 5px 10px;
 	margin:20px 5px;
+	width:300px;
+	margin-right:100px;
+	border:solid 2px;
+}
+#resultsContainer {
+	display:inline-block;
+	border:solid 2px;
+	float:left;
+	padding:10px;
+	background:#e9e9e9;
 }
 #scorecard {
 	position:relative;
@@ -71,13 +81,18 @@ a {
 }
 .header {
 	display:inline-block;
-	width:50px;
+	width:70px;
 	padding:0 15px;
+	text-align:center;
 }
 .element {
 	display:inline-block;
-	width:50px;
+	width:70px;
 	padding:0 15px;
+	text-align:center;
+}
+.score {
+	color:blue;
 }
 
 /* ------------------------------- Scorecard CSS ------------------------------- */
@@ -127,4 +142,8 @@ a {
 }
 #toggleContainer {
 	display:inline-block;
+}
+img.loader {
+	display:none;
+	padding-left:10px;
 }

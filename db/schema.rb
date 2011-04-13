@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110409201510) do
+ActiveRecord::Schema.define(:version => 20110413014400) do
 
   create_table "scorecards", :force => true do |t|
     t.integer  "hole1"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20110409201510) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "month"
+    t.boolean  "large_scorecard"
   end
 
   create_table "users", :force => true do |t|

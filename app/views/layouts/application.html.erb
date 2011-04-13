@@ -11,13 +11,14 @@
   <div id="navigation">
 	
 	<ul>
-		  <li><%= image_tag 'header_pic.png', :height => "70", :width => "300" %></li>
+		  <li><%= image_tag 'header_pic.png', :height => "70", :width => "275" %></li>
 		<% if user_signed_in? %>
 		  <li><%= link_to "Scorecard", scorecards_path %></li>
 		  <li><%= link_to "Leaderboard", leaderboard_path %></li>
 		  <li><%= link_to "Users", users_path %>
 		  <li>Signed in as <%= current_user.name %>.</li> 
 		  <li>Not you? <%= link_to "Sign Out", destroy_user_session_path %></li>
+		  <li><%= link_to "Edit Profile", edit_user_registration_path %>
 		  
 		<% else %>
 		  <li><%= link_to "Home", root_path %></li>

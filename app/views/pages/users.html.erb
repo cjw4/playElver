@@ -1,3 +1,10 @@
+<% form_tag users_path, :method => 'get' do %>
+  <p>
+  	<%= text_field_tag :search %>
+	<%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <% @users.each do |user| %>
 	<%= user.name %><br />
 <% end %>

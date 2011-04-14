@@ -11,6 +11,10 @@ class PagesController < ApplicationController
   end
   
   def users
-    @users = User.all
+    if params[:search]
+      @users = User.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    else
+      @users = User.all 
+    end
   end
 end

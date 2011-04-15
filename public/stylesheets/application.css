@@ -1,7 +1,7 @@
 /* ------------------------------- Application CSS ------------------------------- */
 #wrapper {
 	margin: 0 auto;
-	width:1000px;
+	width:980px;
 }
 a:hover {
 	text-decoration:none;
@@ -29,7 +29,8 @@ a {
 /* ------------------------------- Navigation CSS ------------------------------- */
 
 #navigation {
-	margin:20px 0;
+	padding:0px;
+	margin:0px;
 }
 #navigation ul {
 	padding:1px 10px;
@@ -46,30 +47,30 @@ a {
 	margin:5px;
 	float:left;
 }
+#personalContainer {
+	background:#FFF380;
+	padding: 5px 10px;
+	margin:15px 5px 15px 0px;
+	width:175px;
+	margin-right:100px;
+	border:solid 1px;
+	display:inline-block;
+}
+#personalContainer h3 {
+	margin:0px;
+}
 
 /* ------------------------------- Logged in home CSS ------------------------------- */
 
-#scorecardContainer {
-	padding:0px 20px 0px 0px;
-	float:right;
-	overflow:hidden;
-	padding:0px;
-}
-#personalContainer {
-	background:#FFF380;
-	float:right;
-	padding: 5px 10px;
-	margin:20px 5px;
-	width:300px;
-	margin-right:100px;
-	border:solid 2px;
-}
+
 #resultsContainer {
 	display:inline-block;
-	border:solid 2px;
 	float:left;
+	margin:0px 30px;
 	padding:10px;
-	background:#e9e9e9;
+}
+#resultsContainer h2 {
+	text-align:center;
 }
 #scorecard {
 	position:relative;
@@ -107,6 +108,15 @@ a {
 
 /* ------------------------------- Scorecard CSS ------------------------------- */
 
+#scorecardContainer {
+	padding:0px 20px 0px 0px;
+	float:left;
+	overflow:hidden;
+	padding:0px;
+}
+#scorecardContainer h2 {
+	text-align:center;
+}
 .holeLabel {
 	color: #999;
 	font-size: 12px;
@@ -117,6 +127,7 @@ a {
 .outputSC {
 	margin:20px 0px;
 	white-space:nowrap;
+	display:none;
 }
 .holeInput {
 	width:30px;

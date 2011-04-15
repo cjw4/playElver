@@ -5,7 +5,10 @@ CodeName1::Application.routes.draw do
   resources :scorecards
   match 'leaderboard' => 'leaderboards#index'
   match 'users' => 'pages#users'
-  match 'toggle' => 'scorecards#toggle'
+  
+  # partials
+  match 'partials/results' => 'scorecards#results'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

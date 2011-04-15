@@ -3,14 +3,13 @@ class PagesController < ApplicationController
   
   def index
     if user_signed_in?
-      @scorecard = current_user.scorecards.new
-      @scorecards = current_user.scorecards.paginate(:page => params[:page], :order => 'created_at DESC', :per_page => 3)
-      @best_score = current_user.scorecards.find(:all, :order => 'total ASC', :limit => 1)
+      redirect_to scorecards_path
     end
     @title = "Home"
   end
   
   def users
+    @best_score = current_user.scorecards.find(:all, :order => 'total ASC', :limit => 1)
     if params[:search]
       @users = User.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     else

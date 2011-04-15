@@ -8,6 +8,14 @@ class ScorecardsController < ApplicationController
     @best_score = current_user.scorecards.find(:all, :order => 'total ASC', :limit => 1)
   end
   
+  def results
+    @scorecards = current_user.scorecards.paginate(:page => params[:page], :order => 'created_at DESC', :per_page => 10)
+    
+    respond_to do |format|
+      format.html { render :partial => 'results' }
+    end
+  end
+  
   def create
     @scorecard = current_user.scorecards.create({:hole1 => params["hole1"], :hole2 => params["hole2"], :hole3 => params["hole3"],
                                                  :hole4 => params["hole4"], :hole5 => params["hole5"], :hole6 => params["hole6"],
@@ -15,7 +23,7 @@ class ScorecardsController < ApplicationController
                                                  :hole10 => params["hole10"], :hole11 => params["hole11"], :hole12 => params["hole12"],
                                                  :hole13 => params["hole13"], :hole14 => params["hole14"], :hole15 => params["hole15"],
                                                  :hole16 => params["hole16"], :hole17 => params["hole17"], :hole18 => params["hole18"],
-                                                 :total => params["total"], :month => params["month"], 
+                                                 :total => params["total"], :month => params["month"], :pro => params["pro"],
                                                  :large_scorecard => params["large_scorecard"]
                                                 })
     if @scorecard.save

@@ -3,7 +3,10 @@ $(document).ready(function(){
 	$(".totalInput").val("54");
 	
 	// give #scorecard a sc attriubute value of "true" (sc = "true")
-	$("#scorecard").attr("sc", "true")
+	$("#scorecard").attr("sc", "true");
+	
+	// load the results partial via ajax
+	$("#results").load("partials/results");
 	
 	$(".holeInput").keyup(function() {
 		var i = 1;
@@ -91,15 +94,20 @@ $(document).ready(function(){
 		var hole18 = $("#scorecard_hole18").val();
 		var total = $("#scorecard_total").val();
 		var month = $("#scorecard_month").val();
+		var tees = $("#scorecard_pro");
+		var pro;
+		if (tees.attr("checked") == true) pro = "true";
+		else pro = "false";
 		
 		var largeSC = $("#scorecard").attr("sc");
 		$.post('scorecards', 
 			{ hole1: hole1, hole2: hole2, hole3: hole3, hole4: hole4, hole5: hole5, hole6: hole6,
 		  	hole7: hole7, hole8: hole8, hole9: hole9, hole10: hole10, hole11: hole11, hole12: hole12,
    	      	hole13: hole13, hole14: hole14, hole15: hole15, hole16: hole16, hole17: hole17, hole18: hole18,
-		  	total: total, month: month, large_scorecard: largeSC }, 
+		  	total: total, month: month, large_scorecard: largeSC, pro: pro }, 
 			function() {
-				$("img.loader").css({display:'none'});				
+				$("img.loader").css({display:'none'});
+				$("#results").load("partials/results");				
 			});
 			
 		return false;

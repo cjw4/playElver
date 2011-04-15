@@ -1,20 +1,17 @@
-<div id="personalContainer">
-	
-  <%= render 'shared/personal' %>
-
-</div><!-- end personalContainer div -->
-
-<div id="resultsContainer">
-	
-  <%= render 'shared/results' %>
-
-</div><!-- end resultsContainer div -->
-
 <div id="scorecardContainer">
 
   <h2>Scorecard!</h2>
   <%= render 'shared/scorecard' %>
 
 </div><!-- end scorecardContainer div -->
+
+<div id="resultsContainer">
+	<h2>Results!</h2>
+	<div id="results">
+	</div>
+	<div align="center"><%= will_paginate @scorecards %></div>
+</div><!-- end resultsContainer div -->
+
+
 
  

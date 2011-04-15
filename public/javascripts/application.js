@@ -6,7 +6,7 @@ $(document).ready(function(){
 	$("#scorecard").attr("sc", "true");
 	
 	// load the results partial via ajax
-	$("#results").load("partials/results");
+	// $("#results").load("partials/results");
 	
 	$(".holeInput").keyup(function() {
 		var i = 1;

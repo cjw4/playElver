@@ -11,11 +11,11 @@ class LeaderboardsController < ApplicationController
                                         :limit => 10)
     
     @scores_month = Scorecard.find(:all, :order => "total ASC", 
-                                         :conditions => ["(user_id in (#{followed_ids}) OR user_id = ?) AND month = ?", current_user, Time.now.month], 
+                                         :conditions => ["(user_id in (#{followed_ids}) OR user_id = ?) AND month = ?", current_user.id, Time.now.month], 
                                          :limit => 10)
                                          
     @scores_week = Scorecard.find(:all, :order => "total ASC", 
-                                        :conditions => ["(user_id in (#{followed_ids}) OR user_id = ?) AND created_at > ?", current_user, 1.week.ago], 
+                                        :conditions => ["(user_id in (#{followed_ids}) OR user_id = ?) AND created_at > ?", current_user.id, 1.week.ago], 
                                         :limit => 10)
     @i = 1
     @m = 1

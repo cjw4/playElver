@@ -5,7 +5,6 @@ class ScorecardsController < ApplicationController
     @title = "Scorecard"
     @scorecard = current_user.scorecards.new
     @scorecards = current_user.scorecards.paginate(:page => params[:page], :order => 'created_at DESC', :per_page => 10)
-    @best_score = current_user.scorecards.find(:all, :order => 'total ASC', :limit => 1)
   end
   
   def results

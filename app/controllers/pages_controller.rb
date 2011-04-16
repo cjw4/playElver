@@ -9,7 +9,6 @@ class PagesController < ApplicationController
   end
   
   def users
-    @best_score = current_user.scorecards.find(:all, :order => 'total ASC', :limit => 1)
     if params[:search]
       @users = User.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     else

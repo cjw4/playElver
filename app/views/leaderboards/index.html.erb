@@ -1,11 +1,5 @@
 <h2>Leaderboards!</h2>
-<div>Here are the players you've included in your leaderboard:
-	<ul>
-<% @following.each do |followed| %>
-  <li><%= followed.name %></li>
-<% end %>
-	</ul>
-</div>
+
 <div id="topTen">
 	<h3>Top Ten scores of 2011!</h3>
 	<% @scores_year.each do |score| %>

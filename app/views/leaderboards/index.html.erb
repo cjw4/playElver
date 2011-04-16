@@ -1,8 +1,14 @@
 <h2>Leaderboards!</h2>
-
+<div>Here are the players you've included in your leaderboard:
+	<ul>
+<% @following.each do |followed| %>
+  <li><%= followed.name %></li>
+<% end %>
+	</ul>
+</div>
 <div id="topTen">
 	<h3>Top Ten scores of 2011!</h3>
-	<% @scores.each do |score| %>
+	<% @scores_year.each do |score| %>
 	  <div class="topTenScore">
 	  <%= @i %>. <strong><%= score.user.name %></strong>
 	  <%= score.total %>
@@ -34,5 +40,4 @@
 	</div>
 	<% @w = @w + 1 %>
   <% end %>
-</div>
-<%= Time.now.beginning_of_month %>
+</div>	

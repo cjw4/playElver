@@ -3,6 +3,7 @@ CodeName1::Application.routes.draw do
   devise_for :users
   root :to => "pages#index"
   resources :scorecards
+  resources :relationships, :only => [:create, :destroy]
   match 'leaderboard' => 'leaderboards#index'
   match 'users' => 'pages#users'
   

@@ -9,6 +9,9 @@ a:hover {
 a {
 	color:blue;
 }
+form {
+	display:inline;
+}
 .flash_error, .flash_error, .flash_alert {
 	padding: 0.8em; 
 	margin-bottom: 1em; 

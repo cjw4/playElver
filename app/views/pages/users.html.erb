@@ -8,5 +8,14 @@
 <% end %>
 
 <% @users.each do |user| %>
-	<%= user.name %><br />
+	<%= user.name %>
+	<% if user == current_user %>
+	(This is you!)<br />
+	<% else %>
+	<% if current_user.following?(user) %>
+	    <%= render :partial => 'unfollow', :locals => { :user => user } %><br />
+	  <% else %>
+	    <%= render :partial => 'follow', :locals => { :user => user } %><br />
+	  <% end %>
+	<%end  %>
 <% end %>

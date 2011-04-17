@@ -1,13 +1,14 @@
 /* ------------------------------- Application CSS ------------------------------- */
 #wrapper {
 	margin: 0 auto;
-	width:980px;
+	width:910px;
 }
 a:hover {
 	text-decoration:none;
 }
 a {
-	color:blue;
+	font: normal 15px/100% Georgia, Tahoma, serif;
+	color:#306EFF;
 }
 form {
 	display:inline;
@@ -34,6 +35,7 @@ form {
 #navigation {
 	padding:0px;
 	margin:0px;
+	background:;
 }
 #navigation ul {
 	padding:1px 10px;
@@ -43,21 +45,27 @@ form {
 #navigation ul li {
 	list-style:none;
 	display: inline;
+	font: normal 15px Georgia, Tahoma, serif;
 	padding:0px 10px;
 	line-height:40px;
 }
 .headerPic {
-	margin:5px;
+	margin:10px;
 	float:left;
 }
 #personalContainer {
-	background:#FFF380;
+	background:#FFF917;
+	
+	color:#666;
 	padding: 5px 10px;
 	margin:15px 5px 15px 0px;
 	width:175px;
-	margin-right:100px;
-	border:solid 1px;
+	margin-right:0px;
+	border:solid 1px #EAC117;
 	display:inline-block;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
 }
 #personalContainer h3 {
 	margin:0px;
@@ -90,23 +98,52 @@ form {
 	padding:0px;
 	margin:10px 0;
 }
-.header {
+
+.dateHeader, .date {
 	display:inline-block;
-	width:70px;
-	padding:0 15px;
+	width:115px;
 	text-align:center;
+	margin: 0px 10px;
 }
-.element, .date {
+.scoreHeader, .scoreContainer {
 	display:inline-block;
-	width:70px;
-	padding:0 15px;
+	width:100px;
 	text-align:center;
+	margin: 0px 10px;
 }
-.date {
-	width:90px;
+.teesHeader, .teesContainer {
+	display:inline-block;
+	width:55px;
+	text-align:center;
+	margin: 0px 10px;
 }
 .score {
-	color:blue;
+	color:#306EFF;
+}
+input[type="button"].showBtn {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	height:20px;
+	font: normal 12px/100% Helvetica, Tahoma, sans-serif;
+	background:#999;
+	color: #FFF;
+}
+
+.holeOutputLabel {
+	color: #999;
+	font-size: 12px;
+	width:35px;
+	text-align:center;
+	display:inline-block;
+}
+.holeOutput {
+	width:33px;
+	text-align:center;
+	display:inline-block;
+	margin:2px 0px;
+	border:solid thin #999;
+	
 }
 
 /* ------------------------------- Scorecard CSS ------------------------------- */
@@ -115,10 +152,22 @@ form {
 	padding:0px 20px 0px 0px;
 	float:left;
 	overflow:hidden;
-	padding:0px;
+	margin:20px 0px;
 }
 #scorecardContainer h2 {
 	text-align:center;
+}
+input[type="submit"].deleteBtn {
+	height:20px;
+	padding: 2px 5px;
+	font: normal 12px/100% Helvetica, Tahoma, sans-serif;
+	background:#999;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	display:inline-block;
+	margin: 0px 5px;
+	color: #FFF;
 }
 .holeLabel {
 	color: #999;
@@ -128,7 +177,7 @@ form {
 	text-align:center;
 }
 .outputSC {
-	margin:20px 0px;
+	margin:10px 0px 10px 25px;
 	white-space:nowrap;
 	display:none;
 }
@@ -140,21 +189,19 @@ form {
 	width:45px;
 	text-align:center;
 }
-.holeOutput {
-	width:35px;
-	text-align:center;
-	display:inline-block;
-}
 .teesOutput {
 	width:30px;
 	display:inline-block;
 	font-weight:800;
 	text-align:center;
 }
-.deleteBtn {
-	width:60px;
+.deleteBtnContainer {
 	display:inline-block;
 	text-align:center;
+}
+.toggleOutput {
+	display:inline-block;
+	width:30px;
 }
 #toggleSC {
 	color:#FFF;
@@ -172,34 +219,44 @@ img.loader {
 	padding-left:10px;
 }
 
+
 /* ------------------------------- Leaderboard CSS ------------------------------- */
 
 #topTen {
-	border:solid 2px;
+	/*border:solid 2px #6CC417;*/
 	display:inline-block;
 	padding:20px;
 	float:left;
-	margin:10px;
-	background:#e9e9e9;
+	margin:5px;
+	/*background:#87F717;*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 
 #topTenMonth {
-	border:solid 2px;
+	/*border:solid 2px #E77471;*/
 	display:inline-block;
 	padding:20px;
 	float:left;
-	margin:10px;
-	background:#d7e9d7;
+	margin:5px;
+	/*background:#E41B17;*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 
 #topTenWeek {
-	border:solid 2px;
+	/*border:solid 2px #AFDCEC;*/
 	display:inline-block;
 	padding:20px;
 	float:left;
-	margin:10px;
-	background:#f3f5a9;
+	margin:5px;
+	/*background:#82CAFA;*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 .topTenScore {
-	margin:5px 0;
+	margin:10px 0;
 }

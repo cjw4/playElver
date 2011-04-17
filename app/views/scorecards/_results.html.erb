@@ -1,28 +1,40 @@
  <div id="outputHeader">
-	<span class="date">Date</span>
-	<span class="header">Score</span>
-	<span class="header">Tees</span>
+	<span class="dateHeader">Date</span>
+	<span class="scoreHeader">Score</span>
+	<span class="teesHeader">Tees</span>
 </div>
 
 <% @scorecards.each do |scorecard| %>
 
 <div class="output">
 	<span class="date"><%= scorecard.created_at.strftime("%b %e, %Y") %></span>
-	<span class="element"><%= scorecard.total %>
-		<span class="score"><%= score(scorecard) %></span>
+	<span class="scoreContainer"><%= scorecard.total %>
+		<span class="score">(<%= score(scorecard) %>)</span>
 		<% if scorecard.large_scorecard %>
-		<input type="button" value="<" class="showBtn" /></span>
-		<% else %>
+		<span class="toggleOutput"><input type="button" value="<" class="showBtn" /></span>
 		</span>
+		<% else %>
+		<span class="toggleOutput"></span></span>
 		<% end %>
 	<% if scorecard.pro? %>
-	<span class="element">Pro</span>
+	<span class="teesContainer">Pro</span>
 	<% else %>
-	<span class="element">Am</span>
+	<span class="teesContainer">Am</span>
 	<% end  %>
-	<span class="deleteBtn"><%= button_to "x", scorecard, :method => :delete, :confirm => "Are you sure?" %></span>
+	<span class="deleteBtnContainer"><%= button_to "x", scorecard, :method => :delete, :confirm => "Are you sure?", :class => "deleteBtn" %></span>
 
 <div class="outputSC">
+	<div>
+	  	<span class="holeOutputLabel">1</span>
+		<span class="holeOutputLabel">2</span>
+		<span class="holeOutputLabel">3</span>
+		<span class="holeOutputLabel">4</span>
+		<span class="holeOutputLabel">5</span>
+		<span class="holeOutputLabel">6</span>
+		<span class="holeOutputLabel">7</span>
+		<span class="holeOutputLabel">8</span>
+		<span class="holeOutputLabel">9</span>
+	  </div>
 	<div class="holes">	
 		<span class="holeOutput"><%= scorecard.hole1 %></span>
 		<span class="holeOutput"><%= scorecard.hole2 %></span>
@@ -34,6 +46,17 @@
 		<span class="holeOutput"><%= scorecard.hole8 %></span>
 		<span class="holeOutput"><%= scorecard.hole9 %></span>
 	</div>
+	<div>
+	  	<span class="holeOutputLabel">10</span>
+		<span class="holeOutputLabel">11</span>
+		<span class="holeOutputLabel">12</span>
+		<span class="holeOutputLabel">13</span>
+		<span class="holeOutputLabel">14</span>
+		<span class="holeOutputLabel">15</span>
+		<span class="holeOutputLabel">16</span>
+		<span class="holeOutputLabel">17</span>
+		<span class="holeOutputLabel">18</span>
+	  </div>
 	<div class="holes">
   		<span class="holeOutput"><%= scorecard.hole10 %></span>
 	    <span class="holeOutput"><%= scorecard.hole11 %></span>
@@ -46,6 +69,6 @@
 	    <span class="holeOutput"><%= scorecard.hole18 %></span>
 	</div>
 </div>
-</div><!-- end output div -->
+</div><!-- end outputSC div -->
 	
 <% end %>

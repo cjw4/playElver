@@ -1,12 +1,12 @@
 <h2>Leaderboards!</h2>
-
+<p>Add other playElver golfers to your leaderboards <%= link_to "here", users_path %>!</p> 
 <div id="topTen">
 	<h3>Top Ten scores of 2011!</h3>
 	<% @scores_year.each do |score| %>
 	  <div class="topTenScore">
 	  <%= @i %>. <strong><%= score.user.name %></strong>
-	  <%= score.total %>
-	  (<%= score.created_at.strftime("%b %e, %Y")%>)
+	  <%= score.total %> (<%= score(score) %>)
+	  <%= score.created_at.strftime("%b %e, %Y")%>
 	  </div>
 	  <% @i = @i + 1 %>
 	<% end %>
@@ -17,8 +17,8 @@
 	<% @scores_month.each do |score| %>
 	<div class="topTenScore">
 	<%= @m %>. <strong><%= score.user.name %></strong>
-	<%= score.total %>
-	(<%= score.created_at.strftime("%b %e, %Y")%>)
+	<%= score.total %> (<%= score(score) %>)
+	<%= score.created_at.strftime("%b %e, %Y")%>
 	</div>
 	<% @m = @m + 1 %>
 	<% end %>
@@ -29,8 +29,8 @@
   <% @scores_week.each do |score| %>
   	<div class="topTenScore">
 	<%= @w %>. <strong><%= score.user.name %></strong>
-	<%= score.total %>
-	(<%= score.created_at.strftime("%b %e, %Y")%>)
+	<%= score.total %> (<%= score(score) %>)
+	<%= score.created_at.strftime("%b %e, %Y")%>
 	</div>
 	<% @w = @w + 1 %>
   <% end %>

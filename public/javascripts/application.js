@@ -36,7 +36,7 @@ $(document).ready(function(){
 	$(".outputSC").css({"display":"none"});
 	
 	$(".showBtn").live("click", function(){
-		$(this).parent().parent().children(".outputSC").slideToggle();
+		$(this).parent().parent().parent().children(".outputSC").slideToggle();
 		if ($(this).val() == "<") {
 			$(this).replaceWith($("<input>", {"type":"button", "value":"v", "class":"showBtn"}));
 		} else {
